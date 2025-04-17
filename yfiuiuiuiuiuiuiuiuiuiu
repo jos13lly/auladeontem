@@ -1,0 +1,27 @@
+def salvar(e):
+        nome= nomealuno.value()
+        turma= turmaaluno.value()
+
+        nomealuno.value = ""
+        turmaaluno.value = ""
+
+        if nome:
+            conn, status = con.conectar_banco()
+
+        if conn:
+                result = con.inserir_nome (conn, nome, turma)
+                result.value = result
+                conn.close() #fechar a conexão após a inserção
+
+        else:
+            result.value = status
+
+        else:
+        
+        result.value = "Por favor, insira um nome!"
+
+
+        page.update()
+
+    page.add(nomealuno, turmaaluno, btn, dt)
+ft.app(target = main)
