@@ -1,0 +1,56 @@
+import flet as ft
+import pymysql
+
+
+def main(page: ft.Page):
+    page.scroll = True
+
+  
+    conn = pymysql.connect(
+        host = "127.0.0.1",
+        user = "root",
+        password= "",
+        database= "vendas"
+        )
+    
+    cursor = conn.cursor()
+
+    def carregar_nomes():
+        cursor.execute("SELECT * FROM cargo")
+        return cursor.fetchall()
+
+    def inserir_nome(e):
+        nome = nome_input.value.strip()
+        if nome:
+            cursor.execute("INSERT INTO  cargo (NOMECARGO) VALUES (%s)",(nome,))
+            conn.commit()
+            nome_input.value= ""
+            atualizar_tabela()
+
+        def atualizar_tabela():
+            dados = carregar_nomes()
+            data_table.rows.clear()
+            for row in dados:
+                data_table.rows.append(ft.DataRow (cells=[ ft.DataCell(ft.Text(str(row[0]))), ft.Datacell(ft.text(row[1]))]))
+            page.update()                                              
+                                                          
+        nome_input = ft.TextField (label= "digite um nome")
+        botao_inserir = ft.ElevatedButton ("inserir", on_click= inserir_nome)
+
+        data_table = ft.DataTable(
+            columns= [
+                ft.DataColumn(label= ft.Text ("ID cargo")),
+                ft.DataColumn (label= ft.Text("Nome do cargo")),
+
+            ],
+            rows= []
+        )
+        page.add(nome_input, botao_inserir, data_table)
+        atualizar_tabela()
+
+    #conexão fora da função para reuso 
+
+    ft.app(target=main)                                             
+                                                          
+                                                          
+
