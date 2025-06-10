@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ncalculadora.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="calculadora">
+  <input type="text" id="tela" class="tela" disabled>
+  <div class="botoes">
+    <button onclick="addValor('7')">7</button>
+    <button onclick="addValor('8')">8</button>
+    <button onclick="addValor('9')">9</button>
+    <button onclick="addValor('/')">/</button>
+
+    <button onclick="addValor('4')">4</button>
+    <button onclick="addValor('5')">5</button>
+    <button onclick="addValor('6')">6</button>
+    <button onclick="addValor('*')">*</button>
+
+    <button onclick="addValor('1')">1</button>
+    <button onclick="addValor('2')">2</button>
+    <button onclick="addValor('3')">3</button>
+    <button onclick="addValor('-')">-</button>
+
+    <button onclick="addValor('0')">0</button>
+    <button onclick="addValor('.')">.</button>
+    <button onclick="limpar()">C</button>
+    <button onclick="addValor('+')">+</button>
+
+    <button class="igual" onclick="calcular()">=</button>
+  </div>
+</div>
+
+<script>
+  function addValor(valor) {
+    document.getElementById('tela').value += valor;
+  }
+
+  function limpar() {
+    document.getElementById('tela').value = '';
+  }
+
+  function calcular() {
+    try {
+      const resultado = eval(document.getElementById('tela').value);
+      document.getElementById('tela').value = resultado;
+    } catch (e) {
+      alert('Expressão inválida!');
+    }
+  }
+</script>
+
+</body>
+</html>
+</body>
+</html>
