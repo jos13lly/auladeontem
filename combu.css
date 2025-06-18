@@ -1,0 +1,43 @@
+body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f1f1f1;
+}
+
+.container {
+
+    background: rgb(230, 221, 245);
+    padding: 50px;
+    border-radius: 10px;
+    width:550px;
+    height: 170px;
+    
+}
+input[type="text"] {
+        width: 22%;
+        padding: 10px;
+        margin: 10px 0;
+       
+}
+input[type="text2"]{
+        width: 30%;
+        padding: 10px;
+        margin: 10px 0;
+        
+}
+input[type="text3"]{
+        width: 15%;
+        padding: 10px;
+        margin: 10px 0;
+        
+}
+
+button{
+        width: 20%;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: #8400ff;
+        color: rgb(255, 255, 255);
+}
