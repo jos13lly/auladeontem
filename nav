@@ -1,0 +1,14 @@
+import React from 'react';
+
+import home from '../screen/home';
+import pix from '../screen/pix';
+import pagamento from '../screen/pagamento';
+import transferencia from '../screen/transferencia'
+import deposito from '../screen/deposito'
+
+export  default function App() {
+  return (
+    <Stack.Navigator initialhotername = 'home'>
+    </Navigator>
+  );
+}
